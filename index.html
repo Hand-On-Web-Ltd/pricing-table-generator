@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Table Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>💰 Pricing Table Generator</h1></header>
+  <div class="app">
+    <div class="editor">
+      <div class="form-group">
+        <label>Style</label>
+        <select onchange="setStyle(this.value)">
+          <option value="rounded">Rounded</option>
+          <option value="flat">Flat</option>
+          <option value="gradient">Gradient</option>
+        </select>
+      </div>
+      <div class="toggle-wrap">
+        <span>Monthly</span>
+        <div id="billingToggle" class="toggle" onclick="toggleBilling()"></div>
+        <span id="billingLabel">Monthly</span>
+      </div>
+      <div id="tierList"></div>
+      <div class="actions">
+        <button class="btn btn-outline" onclick="addTier()">+ Add Tier</button>
+        <button class="btn btn-primary" onclick="exportHTML()">Export HTML</button>
+      </div>
+    </div>
+    <div class="preview">
+      <div id="previewArea"></div>
+    </div>
+  </div>
+  <div id="exportModal" class="modal">
+    <div class="modal-body">
+      <h3>Export HTML</h3>
+      <p style="color:var(--text-light);margin:0.5rem 0">Copy this code and paste it into your website.</p>
+      <textarea id="exportCode" readonly></textarea>
+      <button class="btn btn-primary" onclick="copyCode()">Copy to Clipboard</button>
+      <button class="btn btn-outline" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
